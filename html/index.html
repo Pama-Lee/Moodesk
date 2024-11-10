@@ -9,7 +9,7 @@
     <style>
       .lazy-image-container {
         position: relative;
-        min-height: 300px; /* 设置最小高度避免加载时的布局偏移 */
+        min-height: 300px;
       }
 
       .lazy-image {
@@ -55,28 +55,48 @@
         background-color: #f1f5f9;
         border-radius: 1rem;
       }
+
+      @keyframes github-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+nav a:hover svg {
+  animation: github-bounce 0.3s ease;
+}
     </style>
   </head>
   <body>
     <div class="bg-gradient-to-b from-orange-50 to-white min-h-screen">
       <!-- Navbar -->
       <nav class="fixed w-full bg-white shadow-sm z-50">
-        <div
-          class="container mx-auto px-4 py-4 flex justify-between items-center"
-        >
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
           <a href="#" class="flex items-center space-x-2">
             <img src="./moodesk.png" alt="Moodesk Logo" class="w-8 h-8" />
             <span class="text-orange-500 font-bold text-xl">Moodesk</span>
           </a>
-          <button
-            onclick="toggleLanguage()"
-            class="px-4 py-2 border-2 border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition duration-300"
-          >
-            <span class="lang-en">中文</span>
-            <span class="lang-zh hidden">English</span>
-          </button>
+          <div class="flex items-center space-x-4">
+            <!-- GitHub Icon and Link -->
+            <a href="https://github.com/Pama-Lee/Moodesk" 
+               class="text-gray-700 hover:text-orange-500 transition-colors duration-200"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="GitHub Repository">
+              <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </a>
+            <!-- Language Toggle Button -->
+            <button
+              onclick="toggleLanguage()"
+              class="px-4 py-2 border-2 border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition duration-300"
+            >
+              <span class="lang-en">中文</span>
+              <span class="lang-zh hidden">English</span>
+            </button>
+          </div>
         </div>
-      </nav>
+      </nav>A
 
       <!-- Hero Section -->
       <section class="pt-32 pb-20">
@@ -868,7 +888,6 @@
       });
 
       document.addEventListener("DOMContentLoaded", function () {
-        // 创建Intersection Observer来检测元素是否进入视口
         const imageObserver = new IntersectionObserver(
           (entries, observer) => {
             entries.forEach((entry) => {
@@ -877,28 +896,20 @@
                 const img = container.querySelector(".lazy-image");
                 const spinner = container.querySelector(".loading-spinner");
                 const placeholder = container.querySelector(".placeholder");
-
-                // 设置图片源并开始加载
                 img.src = img.dataset.src;
-
-                // 图片加载完成后的处理
                 img.onload = function () {
                   img.classList.add("loaded");
                   spinner.style.display = "none";
                   placeholder.style.display = "none";
                 };
-
-                // 停止观察这个元素
                 observer.unobserve(container);
               }
             });
           },
           {
-            threshold: 0.1, // 当10%的元素可见时触发
+            threshold: 0.1,
           }
         );
-
-        // 获取所有懒加载容器并开始观察
         const lazyImageContainers = document.querySelectorAll(
           ".lazy-image-container"
         );
