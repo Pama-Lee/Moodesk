@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "Moodesk 2.0",
+    "version": "2.0",
+    "description": "Add a floating todolist to Moodle course pages",
+    "permissions": [
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://l.xmu.edu.my/course/view.php?id=*"
+            ],
+            "css": [
+                "styles.css"
+            ],
+            "js": [
+                "./components/pdfModule.js",
+                "./components/todoModule.js",
+                "./content.js"
+            ],
+            "type": "module"
+        }
+    ],
+    "icons": {
+        "48": "icons/moodesk.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "icons/*",
+                "components/*"
+            ],
+            "matches": [
+                "https://l.xmu.edu.my/*"
+            ]
+        }
+    ]
+}
