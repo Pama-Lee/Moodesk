@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moodesk - Enhance Your Moodle Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="bg-gradient-to-b from-orange-50 to-white min-h-screen">
+      <!-- Navbar -->
+      <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div
+          class="container mx-auto px-4 py-4 flex justify-between items-center"
+        >
+          <a href="#" class="flex items-center space-x-2">
+            <img src="./moodesk.png" alt="Moodesk Logo" class="w-8 h-8" />
+            <span class="text-orange-500 font-bold text-xl">Moodesk</span>
+          </a>
+          <button
+            onclick="toggleLanguage()"
+            class="px-4 py-2 border-2 border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition duration-300"
+          >
+            <span class="lang-en">中文</span>
+            <span class="lang-zh hidden">English</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="pt-32 pb-20">
+        <div class="container mx-auto px-4 text-center">
+          <div class="lang-en">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Enhance Your
+              <span class="text-orange-500">Moodle</span> Experience
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+              A powerful Chrome extension that brings floating to-do lists and
+              integrated PDF viewing to your Moodle course pages.
+            </p>
+          </div>
+          <div class="lang-zh hidden">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              提升您的 <span class="text-orange-500">Moodle</span> 学习体验
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+              一个强大的Chrome扩展，为您的Moodle课程页面带来悬浮待办事项和集成PDF阅读功能。
+            </p>
+          </div>
+          <a
+            href="#"
+            class="inline-block bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg hover:bg-orange-600 transform hover:-translate-y-1 transition duration-300"
+          >
+            <span class="lang-en">Get Started</span>
+            <span class="lang-zh hidden">开始使用</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div
+              class="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300"
+            >
+              <div
+                class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-orange-500 transition duration-300"
+              >
+                <svg
+                  class="w-8 h-8 text-orange-500 group-hover:text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                  ></path>
+                </svg>
+              </div>
+              <div class="lang-en">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  Smart Todo List
+                </h3>
+                <p class="text-gray-600">
+                  Create and manage course-specific todo lists that stay with
+                  you as you browse.
+                </p>
+              </div>
+              <div class="lang-zh hidden">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  智能待办清单
+                </h3>
+                <p class="text-gray-600">
+                  创建和管理课程专属的待办事项，浏览过程中始终伴随左右。
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div
+              class="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300"
+            >
+              <div
+                class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-orange-500 transition duration-300"
+              >
+                <svg
+                  class="w-8 h-8 text-orange-500 group-hover:text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+              </div>
+              <div class="lang-en">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  Integrated PDF Viewer
+                </h3>
+                <p class="text-gray-600">
+                  View PDF files directly within your course page, no more
+                  switching between tabs.
+                </p>
+              </div>
+              <div class="lang-zh hidden">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  集成PDF阅读器
+                </h3>
+                <p class="text-gray-600">
+                  直接在课程页面查看PDF文件，无需在标签页间切换。
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div
+              class="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300"
+            >
+              <div
+                class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-orange-500 transition duration-300"
+              >
+                <svg
+                  class="w-8 h-8 text-orange-500 group-hover:text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="lang-en">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  Privacy First
+                </h3>
+                <p class="text-gray-600">
+                  All your data is stored locally on your device, ensuring
+                  complete privacy.
+                </p>
+              </div>
+              <div class="lang-zh hidden">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  隐私优先
+                </h3>
+                <p class="text-gray-600">
+                  所有数据均存储在本地设备，确保完全的隐私安全。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Installation Guide -->
+      <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4">
+              <span class="lang-en">Installation Guide</span>
+              <span class="lang-zh hidden">安装指南</span>
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              <span class="lang-en"
+                >Choose your preferred installation method</span
+              >
+              <span class="lang-zh hidden">选择您喜欢的安装方式</span>
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Chrome Web Store Installation -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+              <div
+                class="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6"
+              >
+                <svg
+                  class="w-8 h-8 text-orange-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="lang-en">
+                <h3 class="text-xl font-semibold mb-4">Chrome Web Store</h3>
+                <p class="text-gray-600 mb-6">
+                  The easiest way to install Moodesk (Currently unavailable)
+                </p>
+                <ol class="text-gray-600 space-y-4 mb-6">
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >1</span
+                    >
+                    <span>Visit the Chrome Web Store (link coming soon)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >2</span
+                    >
+                    <span>Click the "Add to Chrome" button</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >3</span
+                    >
+                    <span>Follow the prompts to complete installation</span>
+                  </li>
+                </ol>
+                <button
+                  disabled
+                  class="w-full px-6 py-3 bg-gray-200 text-gray-500 rounded-lg font-medium"
+                >
+                  Coming Soon
+                </button>
+              </div>
+              <div class="lang-zh hidden">
+                <h3 class="text-xl font-semibold mb-4">Chrome 网上应用店</h3>
+                <p class="text-gray-600 mb-6">最简单的安装方式（暂未上架）</p>
+                <ol class="text-gray-600 space-y-4 mb-6">
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >1</span
+                    >
+                    <span>访问 Chrome 网上应用店（链接即将推出）</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >2</span
+                    >
+                    <span>点击"添加至 Chrome"按钮</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >3</span
+                    >
+                    <span>按照提示完成安装</span>
+                  </li>
+                </ol>
+                <button
+                  disabled
+                  class="w-full px-6 py-3 bg-gray-200 text-gray-500 rounded-lg font-medium"
+                >
+                  即将推出
+                </button>
+              </div>
+            </div>
+
+            <!-- Developer Mode Installation -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+              <div
+                class="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6"
+              >
+                <svg
+                  class="w-8 h-8 text-orange-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  ></path>
+                </svg>
+              </div>
+              <div class="lang-en">
+                <h3 class="text-xl font-semibold mb-4">Developer Mode</h3>
+                <p class="text-gray-600 mb-6">
+                  Install manually in developer mode
+                </p>
+                <ol class="text-gray-600 space-y-4 mb-6">
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >1</span
+                    >
+                    <span
+                      >Download the latest release ZIP file from our GitHub
+                      repository</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >2</span
+                    >
+                    <span
+                      >Extract the ZIP file to a folder on your computer</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >3</span
+                    >
+                    <span>Open Chrome and go to chrome://extensions/</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >4</span
+                    >
+                    <span>Enable "Developer mode" in the top-right corner</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >5</span
+                    >
+                    <span
+                      >Click "Load unpacked" and select the extracted
+                      folder</span
+                    >
+                  </li>
+                </ol>
+                <a
+                  href="https://github.com/Pama-Lee/Moodesk/releases/tag/2.0-preview"
+                  class="block w-full px-6 py-3 bg-orange-500 text-white rounded-lg font-medium text-center hover:bg-orange-600 transition duration-300"
+                  >Download ZIP</a
+                >
+              </div>
+              <div class="lang-zh hidden">
+                <h3 class="text-xl font-semibold mb-4">开发者模式</h3>
+                <p class="text-gray-600 mb-6">通过开发者模式手动安装</p>
+                <ol class="text-gray-600 space-y-4 mb-6">
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >1</span
+                    >
+                    <span>从我们的 GitHub 仓库下载最新版本的 ZIP 文件</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >2</span
+                    >
+                    <span>将 ZIP 文件解压到您电脑上的一个文件夹中</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >3</span
+                    >
+                    <span>打开 Chrome 浏览器，访问 chrome://extensions/</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >4</span
+                    >
+                    <span>在右上角启用"开发者模式"</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="flex-shrink-0 w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 mr-3 mt-1"
+                      >5</span
+                    >
+                    <span>点击"加载已解压的扩展程序"并选择解压后的文件夹</span>
+                  </li>
+                </ol>
+                <a
+                  href="https://github.com/Pama-Lee/Moodesk/releases/tag/2.0-preview"
+                  class="block w-full px-6 py-3 bg-orange-500 text-white rounded-lg font-medium text-center hover:bg-orange-600 transition duration-300"
+                  >下载 ZIP 文件</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preview Section -->
+      <section class="py-20 bg-orange-50">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-16">
+            <span class="lang-en">Features Overview</span>
+            <span class="lang-zh hidden">功能预览</span>
+          </h2>
+
+          <!-- Todo List Feature -->
+          <div class="max-w-6xl mx-auto mb-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div class="order-2 md:order-1">
+                <div class="lang-en">
+                  <h3 class="text-2xl font-semibold mb-4">Smart Todo List</h3>
+                  <ul class="space-y-4">
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span
+                        >Create course-specific todo lists that follow you
+                        across pages</span
+                      >
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span
+                        >Drag and drop interface for easy task management</span
+                      >
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span
+                        >Local storage ensures your data stays private and
+                        secure</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="lang-zh hidden">
+                  <h3 class="text-2xl font-semibold mb-4">智能待办清单</h3>
+                  <ul class="space-y-4">
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>创建课程专属的待办事项，在不同页面间保持同步</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>支持拖拽排序，轻松管理任务优先级</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>本地存储确保数据隐私与安全</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="order-1 md:order-2">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 transform rotate-1"
+                  ></div>
+                  <img
+                    src="./videos/todo.gif"
+                    alt="Todo List Preview"
+                    class="relative rounded-xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PDF Viewer Feature -->
+          <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 transform -rotate-1"
+                ></div>
+                <img
+                  src="./videos/pdf.gif"
+                  alt="PDF Viewer Preview"
+                  class="relative rounded-xl"
+                />
+              </div>
+              <div>
+                <div class="lang-en">
+                  <h3 class="text-2xl font-semibold mb-4">
+                    Integrated PDF Viewer
+                  </h3>
+                  <ul class="space-y-4">
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span
+                        >View PDF files directly within your course page</span
+                      >
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span
+                        >Adjustable split-screen view for better
+                        multitasking</span
+                      >
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span
+                        >Quick access to open PDFs in new tabs when needed</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="lang-zh hidden">
+                  <h3 class="text-2xl font-semibold mb-4">集成PDF阅读器</h3>
+                  <ul class="space-y-4">
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>直接在课程页面内查看PDF文件</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>可调节的分屏视图，提升多任务效率</span>
+                    </li>
+                    <li class="flex items-start">
+                      <svg
+                        class="w-6 h-6 text-orange-500 mt-1 mr-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>支持快速在新标签页中打开PDF</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-white py-8">
+        <div class="container mx-auto px-4 text-center text-gray-600">
+          <div class="lang-en">
+            <p>© 2024 Moodesk. All rights reserved.</p>
+          </div>
+          <div class="lang-zh hidden">
+            <p>© 2024 Moodesk. 保留所有权利。</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Mobile Warning Toast -->
+    <div
+      id="mobileWarning"
+      class="hidden fixed bottom-0 left-0 right-0 mb-4 mx-4 p-4 bg-orange-100 rounded-lg shadow-lg border-l-4 border-orange-500 transform transition-transform duration-300 ease-in-out z-50"
+    >
+      <div class="flex items-start">
+        <div class="flex-shrink-0">
+          <svg
+            class="h-6 w-6 text-orange-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            />
+          </svg>
+        </div>
+        <div class="ml-3 w-full">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="text-sm leading-5 font-medium text-orange-800 lang-en">
+                Desktop Browser Extension
+              </p>
+              <p
+                class="text-sm leading-5 font-medium text-orange-800 lang-zh hidden"
+              >
+                桌面浏览器扩展
+              </p>
+              <p class="mt-1 text-sm leading-5 text-orange-700 lang-en">
+                Moodesk is designed for desktop Chrome browsers. Please visit
+                this page on your computer.
+              </p>
+              <p class="mt-1 text-sm leading-5 text-orange-700 lang-zh hidden">
+                Moodesk 是为桌面版 Chrome 浏览器设计的。请在电脑上访问此页面。
+              </p>
+            </div>
+            <button
+              onclick="dismissWarning()"
+              class="ml-4 flex-shrink-0 inline-flex text-orange-500 hover:text-orange-700 focus:outline-none transition ease-in-out duration-150"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleLanguage() {
+        const langEn = document.querySelectorAll(".lang-en");
+        const langZh = document.querySelectorAll(".lang-zh");
+
+        langEn.forEach((el) => el.classList.toggle("hidden"));
+        langZh.forEach((el) => el.classList.toggle("hidden"));
+      }
+
+      // Mobile detection and warning
+      function isMobileDevice() {
+        return (
+          window.innerWidth <= 768 ||
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+        );
+      }
+
+      function showMobileWarning() {
+        if (isMobileDevice()) {
+          const warning = document.getElementById("mobileWarning");
+          warning.classList.remove("hidden");
+          warning.classList.add("flex");
+
+          // Add slide-up animation
+          warning.style.transform = "translateY(100%)";
+          setTimeout(() => {
+            warning.style.transform = "translateY(0)";
+          }, 100);
+        }
+      }
+
+      function dismissWarning() {
+        const warning = document.getElementById("mobileWarning");
+        warning.style.transform = "translateY(100%)";
+        setTimeout(() => {
+          warning.classList.add("hidden");
+          warning.classList.remove("flex");
+        }, 300);
+      }
+
+      // Check on page load
+      document.addEventListener("DOMContentLoaded", showMobileWarning);
+
+      // Check on resize
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(showMobileWarning, 250);
+      });
+    </script>
+  </body>
+</html>
