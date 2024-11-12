@@ -4,19 +4,43 @@
     "version": "2.0",
     "description": "Add a floating todolist to Moodle course pages",
     "permissions": [
-        "storage"
+        "storage",
+        "https://api.github.com/*"
+    ],
+    "host_permissions": [
+        "https://api.github.com/*",
+        "https://raw.githubusercontent.com/*"
     ],
     "content_scripts": [
+        {
+            "matches": [
+                "https://l.xmu.edu.my/*"
+            ],
+            "js": [
+                "./plugins/plugin-manager.js",
+                "./plugins/github-plugin-marketplace.js",
+                "./plugins/init.js"
+            ]
+        },
         {
             "matches": [
                 "https://l.xmu.edu.my/course/view.php?id=*"
             ],
             "css": [
-                "styles.css"
+                "styles.css",
+                "./components/analyticsModule.css",
+                "./components/commandModule.css",
+                "./components/courseSwitcherModule.css",
+                "./components/pdfModule.css",
+                "./components/themeModule.css"
             ],
             "js": [
                 "./components/pdfModule.js",
                 "./components/todoModule.js",
+                "./components/analyticsModule.js",
+                "./components/themeModule.js",
+                "./components/commandModule.js",
+                "./components/courseSwitcherModule.js",
                 "./content.js"
             ],
             "type": "module"

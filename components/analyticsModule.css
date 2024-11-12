@@ -1,0 +1,79 @@
+.moodesk-analytics {
+    background: var(--md-secondary-bg, #f8f9fa);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .analytics-header {
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .analytics-header h4 {
+    color: var(--md-primary, #1a73e8);
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .analytics-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .analytics-toggle svg {
+    stroke: var(--md-primary, #1a73e8);
+  }
+
+  .toggle-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-icon.rotated {
+    transform: rotate(-180deg);
+  }
+
+  .analytics-content {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    max-height: 200px;
+  }
+
+  .analytics-content.collapsed {
+    max-height: 0;
+    margin-top: 0;
+    opacity: 0;
+  }
+
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .analytics-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    background: var(--md-background, white);
+    border-radius: 6px;
+    border: 1px solid var(--md-border, #e0e0e0);
+  }
+
+  .analytics-label {
+    font-size: 12px;
+    color: var(--md-secondary-text, #666);
+  }
+
+  .analytics-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--md-text, #333);
+  }

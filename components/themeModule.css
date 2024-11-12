@@ -1,0 +1,122 @@
+.theme-button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .theme-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--md-background);
+    border: 1px solid var(--md-border);
+    border-radius: 8px;
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 120px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10001;
+  }
+
+  .theme-menu.show {
+    display: flex;
+  }
+
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+    color: var(--md-text);
+  }
+
+  .theme-option:hover {
+    background: var(--md-hover);
+  }
+
+  .theme-option.active {
+    background: var(--md-primary);
+    color: white;
+  }
+
+  .theme-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  /* CSS Variables for Themes */
+  .moodesk-container {
+    --md-primary: ${this.themes.light.colors.primary};
+    --md-background: ${this.themes.light.colors.background};
+    --md-secondary-bg: ${this.themes.light.colors.secondaryBg};
+    --md-text: ${this.themes.light.colors.text};
+    --md-secondary-text: ${this.themes.light.colors.secondaryText};
+    --md-border: ${this.themes.light.colors.border};
+    --md-hover: ${this.themes.light.colors.hover};
+  }
+
+  /* Apply variables to existing elements */
+  .moodesk-container {
+    background: var(--md-background);
+    color: var(--md-text);
+  }
+
+  .moodesk-header {
+    border-bottom-color: var(--md-border);
+  }
+
+  .moodesk-header h3 {
+    color: var(--md-primary);
+  }
+
+  .moodesk-button {
+    color: var(--md-secondary-text);
+  }
+
+  .moodesk-button:hover {
+    background: var(--md-hover);
+    color: var(--md-text);
+  }
+
+  .course-info,
+  .todo-item {
+    background: var(--md-secondary-bg);
+  }
+
+  .course-info .course-name {
+    color: var(--md-text);
+  }
+
+  .course-info .course-code {
+    color: var(--md-secondary-text);
+  }
+
+  .moodesk-todo-input {
+    border-color: var(--md-border);
+    color: var(--md-text);
+    background: var(--md-background);
+  }
+
+  .moodesk-todo-input:focus {
+    border-color: var(--md-primary);
+  }
+
+  .todo-text {
+    color: var(--md-text);
+  }
+
+  .todo-text.completed {
+    color: var(--md-secondary-text);
+  }
+
+  .todo-meta {
+    color: var(--md-secondary-text);
+  }
