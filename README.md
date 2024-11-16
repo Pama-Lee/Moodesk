@@ -5,6 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/version-2.0-orange.svg)
 ![Platform](https://img.shields.io/badge/platform-Chrome-green.svg)
+![Visitors](https://api.visitorbadge.io/api/VisitorHit?user=pama-lee&repo=moodesk&countColor=%23ffb74d)
 
 Moodesk is a Chrome extension designed to enhance your Moodle learning experience with floating to-do lists and integrated PDF viewing capabilities.
 
