@@ -135,7 +135,7 @@
             </p>
           </div>
           <a
-            href="#"
+            href="#install"
             class="inline-block bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg hover:bg-orange-600 transform hover:-translate-y-1 transition duration-300"
           >
             <span class="lang-en">Get Started</span>
@@ -1382,7 +1382,7 @@
       </section>
 
       <!-- Installation Guide -->
-      <section class="py-20 bg-gray-50">
+      <section class="py-20 bg-gray-50" id="install">
         <div class="container mx-auto px-4">
           <div class="text-center mb-16">
             <h2 class="text-3xl font-bold mb-4">
@@ -1805,7 +1805,6 @@
         }, 300);
       }
 
-      // Check on page load
       document.addEventListener("DOMContentLoaded", showMobileWarning);
 
       // Check on resize
@@ -1816,7 +1815,14 @@
       });
 
       document.addEventListener("DOMContentLoaded", function () {
-        // 创建Intersection Observer来检测元素是否进入视口
+
+        // 检查是否有?lang=zh参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get("lang");
+        if (langParam === "zh") {
+          toggleLanguage();
+        }
+
         const imageObserver = new IntersectionObserver(
           (entries, observer) => {
             entries.forEach((entry) => {
@@ -1825,28 +1831,20 @@
                 const img = container.querySelector(".lazy-image");
                 const spinner = container.querySelector(".loading-spinner");
                 const placeholder = container.querySelector(".placeholder");
-
-                // 设置图片源并开始加载
                 img.src = img.dataset.src;
-
-                // 图片加载完成后的处理
                 img.onload = function () {
                   img.classList.add("loaded");
                   spinner.style.display = "none";
                   placeholder.style.display = "none";
                 };
-
-                // 停止观察这个元素
                 observer.unobserve(container);
               }
             });
           },
           {
-            threshold: 0.1, // 当10%的元素可见时触发
+            threshold: 0.1,
           }
         );
-
-        // 获取所有懒加载容器并开始观察
         const lazyImageContainers = document.querySelectorAll(
           ".lazy-image-container"
         );
@@ -1870,5 +1868,7 @@
 
       gtag("config", "G-V4FLHFL2CW");
     </script>
+
+
   </body>
 </html>
