@@ -4,6 +4,9 @@ class AnalyticsModule {
       this.currentCourseId = null;
       this.pdfReadingStartTime = null;
       this.analyticsContainer = null;
+      // 站点特定的存储键
+      this.siteKey = window.location.hostname.replace(/\./g, '_');
+      this.storageKey = `moodeskAnalytics_${this.siteKey}`;
     }
   
     async init() {
@@ -14,8 +17,8 @@ class AnalyticsModule {
     }
   
     async loadStudyData() {
-      const result = await chrome.storage.local.get('moodeskAnalytics');
-      this.studyData = result.moodeskAnalytics || {};
+      const result = await chrome.storage.local.get(this.storageKey);
+      this.studyData = result[this.storageKey] || {};
       if (!this.studyData[this.currentCourseId]) {
         this.studyData[this.currentCourseId] = {
           totalStudyTime: 0,
@@ -169,7 +172,7 @@ class AnalyticsModule {
     }
   
     async saveStudyData() {
-      await chrome.storage.local.set({ moodeskAnalytics: this.studyData });
+      await chrome.storage.local.set({ [this.storageKey]: this.studyData });
     }
   
     updateAnalyticsView() {

@@ -1,0 +1,252 @@
+{
+  "version": "1.0.0",
+  "lastUpdate": "2025-12-01",
+  "description": "Moodesk 站点样式配置文件",
+  
+  "sites": {
+    "l.xmu.edu.my": {
+      "name": "XMUM Moodle",
+      "theme": "default",
+      "selectors": {
+        "pageContent": "#page-content",
+        "courseTitle": ".page-header-headings h1, h1",
+        "mainRegion": "#region-main",
+        "todoInsertPoint": "#region-main-box, #region-main",
+        "navigationDrawer": "#nav-drawer",
+        "header": "#page-header"
+      },
+      "hideElements": [],
+      "customStyles": {},
+      "layoutAdjustments": {},
+      "features": {
+        "todo": true,
+        "pdf": true,
+        "analytics": true,
+        "courseSwitcher": true,
+        "resourceManager": true,
+        "assignmentTracker": true,
+        "search": true
+      }
+    },
+    
+    "ukmfolio.ukm.my": {
+      "name": "UKM Folio",
+      "theme": "ukm-minimal",
+      "selectors": {
+        "pageContent": "#page-content",
+        "courseTitle": "h1",
+        "mainRegion": "[role='main'], #region-main",
+        "todoInsertPoint": ".course-content, #region-main",
+        "header": ".navbar, #page-header, [ref='e4']",
+        "banner": "banner, [role='banner']",
+        "topBar": "[ref='e7']",
+        "navigation": "nav.navbar"
+      },
+      "hideElements": [
+        "#page-header"
+      ],
+      "customStyles": {
+        "body": {
+          "paddingTop": "0"
+        },
+        "#moodesk-sso-fab:hover": {
+          "transform": "scale(1.1)",
+          "boxShadow": "0 6px 20px rgba(0, 102, 179, 0.5)"
+        },
+        "#moodesk-sso-fab:active": {
+          "transform": "scale(0.95)"
+        }
+      },
+      "layoutAdjustments": {},
+      "features": {
+        "todo": true,
+        "pdf": true,
+        "analytics": true,
+        "courseSwitcher": true,
+        "resourceManager": true,
+        "assignmentTracker": {
+          "enabled": true,
+          "layout": "horizontal",
+          "positionSelector": "[role='main'], #region-main",
+          "insertMode": "before"
+        },
+        "search": true
+      },
+      "injectElements": [
+      ]
+    },
+    
+    "cbet.ukm.my": {
+      "name": "UKM CBET",
+      "theme": "ukm-minimal",
+      "selectors": {
+        "pageContent": "#page-content",
+        "courseTitle": "h1",
+        "mainRegion": "[role='main'], #region-main",
+        "todoInsertPoint": ".course-content, #region-main"
+      },
+      "hideElements": [],
+      "customStyles": {},
+      "features": {
+        "todo": true,
+        "pdf": true,
+        "analytics": true
+      }
+    }
+  },
+  
+  "presets": {
+    "minimal": {
+      "description": "极简模式 - 隐藏大部分装饰元素",
+      "hideElements": [
+        ".social-icons",
+        ".footer-popover",
+        ".page-header-image",
+        "#page-footer .footer-content-debugging"
+      ],
+      "layoutAdjustments": {
+        "fullWidth": true
+      }
+    },
+    
+    "focus": {
+      "description": "专注模式 - 只显示主要内容",
+      "hideElements": [
+        "#nav-drawer",
+        ".block-region",
+        ".navbar",
+        "#page-footer"
+      ],
+      "layoutAdjustments": {
+        "fullWidth": true,
+        "hideSidebar": true
+      }
+    },
+    
+    "compact": {
+      "description": "紧凑模式 - 减少间距",
+      "customStyles": {
+        ".course-content .section": {
+          "padding": "10px"
+        },
+        ".activity": {
+          "marginBottom": "5px"
+        }
+      }
+    }
+  },
+  
+  "themes": {
+    "default": {
+      "primary": "#1a73e8",
+      "secondary": "#4285f4",
+      "accent": "#ea4335",
+      "background": "#ffffff",
+      "surface": "#f8f9fa",
+      "text": "#202124",
+      "textSecondary": "#5f6368"
+    },
+    
+    "ukm-minimal": {
+      "primary": "#0066b3",
+      "secondary": "#00a8e8",
+      "accent": "#ff6b00",
+      "background": "#ffffff",
+      "surface": "#f5f5f5",
+      "text": "#333333",
+      "textSecondary": "#666666"
+    },
+    
+    "dark": {
+      "primary": "#8ab4f8",
+      "secondary": "#669df6",
+      "accent": "#f28b82",
+      "background": "#202124",
+      "surface": "#303134",
+      "text": "#e8eaed",
+      "textSecondary": "#9aa0a6"
+    },
+    
+    "nord": {
+      "primary": "#88c0d0",
+      "secondary": "#81a1c1",
+      "accent": "#bf616a",
+      "background": "#2e3440",
+      "surface": "#3b4252",
+      "text": "#eceff4",
+      "textSecondary": "#d8dee9"
+    }
+  },
+  
+  "elementLibrary": {
+    "description": "常见可隐藏元素库",
+    "categories": {
+      "header": {
+        "description": "页头相关元素",
+        "elements": {
+          "topBar": {
+            "description": "顶部导航栏",
+            "selectors": {
+              "ukmfolio.ukm.my": "[ref='e7'], .navbar-nav",
+              "default": ".navbar, #page-header"
+            }
+          },
+          "socialIcons": {
+            "description": "社交媒体图标",
+            "selectors": {
+              "ukmfolio.ukm.my": "[ref='e8'], .social-icons",
+              "default": ".social-icons"
+            }
+          },
+          "banner": {
+            "description": "大横幅/Banner",
+            "selectors": {
+              "ukmfolio.ukm.my": "banner, [role='banner']",
+              "default": ".page-header-image, #page-header"
+            }
+          }
+        }
+      },
+      "navigation": {
+        "description": "导航相关元素",
+        "elements": {
+          "drawer": {
+            "description": "侧边导航抽屉",
+            "selectors": {
+              "default": "#nav-drawer, .drawer"
+            }
+          },
+          "breadcrumb": {
+            "description": "面包屑导航",
+            "selectors": {
+              "default": ".breadcrumb, nav[aria-label='Navigation bar']"
+            }
+          }
+        }
+      },
+      "sidebar": {
+        "description": "侧边栏相关元素",
+        "elements": {
+          "blocks": {
+            "description": "侧边栏区块",
+            "selectors": {
+              "default": ".block-region, #block-region-side-pre, #block-region-side-post"
+            }
+          }
+        }
+      },
+      "footer": {
+        "description": "页脚相关元素",
+        "elements": {
+          "footer": {
+            "description": "页脚",
+            "selectors": {
+              "default": "#page-footer, footer, .footer"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,30 +1,45 @@
 {
     "manifest_version": 3,
-    "name": "Moodesk 2.0",
-    "version": "2.0",
-    "description": "Add a floating todolist to Moodle course pages",
+    "name": "Moodesk",
+    "version": "2.5.0",
+    "description": "Enhanced Moodle experience - Todo, PDF viewer, Course switcher & more. Supports multiple universities.",
     "permissions": [
         "storage",
-        "https://api.github.com/*"
+        "cookies",
+        "webRequest",
+        "tabs"
     ],
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "icons/moodesk.png",
+            "48": "icons/moodesk.png"
+        },
+        "default_title": "Moodesk 设置"
+    },
     "host_permissions": [
         "https://api.github.com/*",
-        "https://raw.githubusercontent.com/*"
+        "https://raw.githubusercontent.com/*",
+        "https://*.xmu.edu.my/*",
+        "https://*.ukm.my/*",
+        "https://*.ukm.edu.my/*",
+        "https://sso.ukm.my/*",
+        "https://api.openai.com/*",
+        "https://api.anthropic.com/*",
+        "https://api.deepseek.com/*",
+        "https://openrouter.ai/*",
+        "https://*/*"
     ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "content_scripts": [
         {
             "matches": [
-                "https://l.xmu.edu.my/*"
-            ],
-            "js": [
-                "./plugins/plugin-manager.js",
-                "./plugins/github-plugin-marketplace.js",
-                "./plugins/init.js"
-            ]
-        },
-        {
-            "matches": [
-                "https://l.xmu.edu.my/course/view.php?id=*"
+                "https://l.xmu.edu.my/*",
+                "https://*.ukm.my/*",
+                "https://*.ukm.edu.my/*",
+                "https://sso.ukm.my/*"
             ],
             "css": [
                 "styles.css",
@@ -32,18 +47,33 @@
                 "./components/commandModule.css",
                 "./components/courseSwitcherModule.css",
                 "./components/pdfModule.css",
-                "./components/themeModule.css"
+                "./components/themeModule.css",
+                "./components/resourceManagerModule.css",
+                "./components/assignmentTrackerModule.css",
+                "./components/ai/aiSidebar.css"
             ],
             "js": [
+                "./libs/jszip.min.js",
+                "./libs/fuse.min.js",
+                "./components/siteConfig.js",
+                "./components/credentialManager.js",
+                "./components/remoteConfigManager.js",
+                "./components/siteStyleManager.js",
+                "./components/authModule.js",
                 "./components/pdfModule.js",
                 "./components/todoModule.js",
                 "./components/analyticsModule.js",
                 "./components/themeModule.js",
                 "./components/commandModule.js",
                 "./components/courseSwitcherModule.js",
+                "./components/resourceManagerModule.js",
+                "./components/assignmentTrackerModule.js",
+                "./components/searchModule.js",
+                "./components/searchUIModuleUI.js",
+                "./components/ai/aiSidebar.js",
                 "./content.js"
             ],
-            "type": "module"
+            "run_at": "document_idle"
         }
     ],
     "icons": {
@@ -56,7 +86,10 @@
                 "components/*"
             ],
             "matches": [
-                "https://l.xmu.edu.my/*"
+                "https://l.xmu.edu.my/*",
+                "https://*.ukm.my/*",
+                "https://*.ukm.edu.my/*",
+                "https://sso.ukm.my/*"
             ]
         }
     ]

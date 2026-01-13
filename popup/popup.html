@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moodesk 设置</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- 头部 -->
+    <header class="popup-header">
+      <div class="logo">
+        <img src="../icons/moodesk.png" alt="Moodesk" width="36" height="36">
+        <div class="logo-text">
+          <h1>Moodesk</h1>
+          <span class="version" id="version">v2.5.0</span>
+        </div>
+      </div>
+      <div class="header-status" id="headerStatus">
+        <span class="status-indicator"></span>
+      </div>
+    </header>
+
+    <!-- Tab 导航 -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="general">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+        <span>常规</span>
+      </button>
+      <button class="tab-btn" data-tab="ai">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+          <circle cx="7.5" cy="14.5" r="1"/>
+          <circle cx="16.5" cy="14.5" r="1"/>
+        </svg>
+        <span>AI</span>
+      </button>
+      <button class="tab-btn" data-tab="login">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+          <polyline points="10 17 15 12 10 7"/>
+          <line x1="15" y1="12" x2="3" y2="12"/>
+        </svg>
+        <span>登录</span>
+      </button>
+      <button class="tab-btn" data-tab="about">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        <span>关于</span>
+      </button>
+    </nav>
+
+    <!-- Tab 内容 -->
+    <main class="tab-content">
+      <!-- 常规设置 Tab -->
+      <section class="tab-panel active" id="tab-general">
+        <!-- 远程配置 -->
+        <div class="card">
+          <div class="card-header">
+            <h3>远程配置</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="configUrl">配置文件 URL</label>
+              <input type="url" id="configUrl" placeholder="https://raw.githubusercontent.com/..." />
+            </div>
+            <div class="form-group">
+              <label for="fallbackUrl">备用 URL（可选）</label>
+              <input type="url" id="fallbackUrl" placeholder="https://cdn.jsdelivr.net/..." />
+            </div>
+            <div class="button-row">
+              <button class="btn btn-ghost" id="resetBtn">重置</button>
+              <button class="btn btn-primary" id="saveBtn">保存</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 导航行为 -->
+        <div class="card">
+          <div class="card-header">
+            <h3>导航行为</h3>
+          </div>
+          <div class="card-body">
+            <label class="toggle-label">
+              <div class="toggle-text">
+                <strong>自动跳转到「我的课程」</strong>
+                <small>启用后，进入 /my/ 页会自动跳转到 /my/courses.php</small>
+              </div>
+              <div class="toggle-switch">
+                <input type="checkbox" id="redirectMyToCourses">
+                <span class="toggle-slider"></span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- 界面显示 -->
+        <div class="card">
+          <div class="card-header">
+            <h3>界面显示</h3>
+          </div>
+          <div class="card-body">
+            <label class="toggle-label">
+              <div class="toggle-text">
+                <strong>显示侧边栏</strong>
+                <small>启用后，在课程页面显示包含待办事项和学习统计的侧边栏（需刷新页面生效）</small>
+              </div>
+              <div class="toggle-switch">
+                <input type="checkbox" id="sidebarEnabled">
+                <span class="toggle-slider"></span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- 缓存管理 -->
+        <div class="card">
+          <div class="card-header">
+            <h3>缓存</h3>
+          </div>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">配置版本</span>
+              <span class="info-value" id="configCacheTime">未缓存</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">上次更新</span>
+              <span class="info-value" id="lastUpdate">-</span>
+            </div>
+            <div class="button-row">
+              <button class="btn btn-ghost" id="clearCacheBtn">清除</button>
+              <button class="btn btn-primary" id="reloadBtn">刷新</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI 设置 Tab -->
+      <section class="tab-panel" id="tab-ai">
+        <div class="card">
+          <div class="card-header">
+            <h3>AI 助手</h3>
+            <label class="toggle-mini">
+              <input type="checkbox" id="aiEnabled">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+          <div class="card-body">
+            <p class="card-desc">启用 Moodesk AI 助手，帮你查询作业、课程信息，回答学习问题。</p>
+            
+            <div class="form-group">
+              <label for="aiApiHost">API Host</label>
+              <select id="aiApiHostPreset" class="form-select">
+                <option value="https://api.openai.com">OpenAI</option>
+                <option value="https://api.deepseek.com">DeepSeek</option>
+                <option value="https://generativelanguage.googleapis.com/v1beta/openai">Google Gemini (OpenAI 兼容)</option>
+                <option value="https://openrouter.ai/api">OpenRouter</option>
+                <option value="custom">自定义</option>
+              </select>
+              <input type="url" id="aiApiHost" placeholder="https://api.openai.com" style="margin-top: 6px;" />
+            </div>
+
+            <div class="form-group">
+              <label for="aiApiKey">API Key</label>
+              <div class="input-with-toggle">
+                <input type="password" id="aiApiKey" placeholder="sk-..." />
+                <button class="input-toggle" id="toggleApiKey" type="button">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="aiModel">模型</label>
+              <select id="aiModel" class="form-select">
+                <option value="gpt-4o-mini">GPT-4o Mini（推荐）</option>
+                <option value="gpt-4o">GPT-4o</option>
+                <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                <option value="deepseek-chat">DeepSeek Chat</option>
+                <option value="claude-3-5-sonnet-20241022">Claude 3.5 Sonnet</option>
+                <option value="claude-3-haiku-20240307">Claude 3 Haiku</option>
+                <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+                <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+                <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+                <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
+                <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
+                <option value="gemini-3.0-pro">Gemini 3.0 Pro</option>
+              </select>
+            </div>
+
+            <div class="button-row">
+              <button class="btn btn-ghost" id="testAiBtn">测试连接</button>
+              <button class="btn btn-primary" id="saveAiBtn">保存</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-info">
+          <div class="card-body">
+            <div class="info-content">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+              <div>
+                <strong>使用说明</strong>
+                <p>配置后，可通过命令面板或快捷键打开 AI 助手。默认快捷键：⌘/Alt + Shift + A</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 登录设置 Tab -->
+      <section class="tab-panel" id="tab-login">
+        <div class="card">
+          <div class="card-header">
+            <h3>自动登录</h3>
+            <label class="toggle-mini">
+              <input type="checkbox" id="autoLoginEnabled">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+          <div class="card-body">
+            <p class="card-desc">启用后，访问 Moodle 站点时将自动使用保存的凭据登录。</p>
+            
+            <div class="credentials-section" id="savedCredentials">
+              <div class="empty-state" id="noCredentials">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>暂无保存的凭据</span>
+                <small>在 SSO 登录页面勾选"Moodesk 自动登录"即可保存</small>
+              </div>
+              <div class="credentials-list" id="credentialsList"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-warning">
+          <div class="card-body">
+            <div class="warning-content">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <div>
+                <strong>安全说明</strong>
+                <p>凭据使用 AES-256-GCM 加密存储在本地浏览器中。</p>
+              </div>
+            </div>
+            <button class="btn btn-danger-ghost" id="clearCredentialsBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+              清除所有凭据
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 关于 Tab -->
+      <section class="tab-panel" id="tab-about">
+        <div class="card about-card">
+          <div class="about-logo">
+            <img src="../icons/moodesk.png" alt="Moodesk" width="64" height="64">
+            <h2>Moodesk</h2>
+            <span class="about-version" id="aboutVersion">v2.5.0</span>
+          </div>
+          <p class="about-desc">增强你的 Moodle 学习体验</p>
+          <div class="about-features">
+            <span class="feature-tag">PDF 阅读器</span>
+            <span class="feature-tag">课程切换</span>
+            <span class="feature-tag">待办事项</span>
+            <span class="feature-tag">学习分析</span>
+            <span class="feature-tag">自动登录</span>
+            <span class="feature-tag">AI 助手</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="link-list">
+              <a class="link-item" id="openDocsBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <span>使用文档</span>
+                <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </a>
+              <a class="link-item" id="openGithubBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                <span>GitHub 仓库</span>
+                <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </a>
+              <a class="link-item" id="reportBugBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <span>问题反馈</span>
+                <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <footer class="popup-footer">
+          <span>Made with ❤️ by Pama</span>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast 通知 -->
+  <div class="toast" id="toast">
+    <span class="toast-icon"></span>
+    <span class="toast-message"></span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

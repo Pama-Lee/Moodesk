@@ -7,6 +7,12 @@ class CourseSwitcherModule {
     this.currentCourseId = new URLSearchParams(window.location.search).get("id");
     this.currentCourseName = null;
     this.commandModule = window.moodeskCommandModule;
+    // 站点特定的存储键前缀
+    this.siteKey = window.location.hostname.replace(/\./g, '_');
+    this.storageKeys = {
+      visited: `moodeskVisitedCourses_${this.siteKey}`,
+      recent: `moodeskRecentCourses_${this.siteKey}`
+    };
   }
 
   async init() {
@@ -24,7 +30,7 @@ class CourseSwitcherModule {
     this.commandModule.addCommands({
       id: "quick-switch",
       name: "快速切换课程",
-      shortcut: `${this.commandModule.modKey} + P`,
+      shortcut: `${this.commandModule.modKey} + Shift + P`,
       category: "课程切换",
       handler: () => this.showQuickSwitcher(),
     });
@@ -90,9 +96,9 @@ class CourseSwitcherModule {
    */
   async loadVisitedCourses() {
     try {
-      const result = await chrome.storage.local.get(['moodeskVisitedCourses', 'moodeskRecentCourses']);
-      this.visitedCourses = result.moodeskVisitedCourses || {};
-      this.recentCourses = result.moodeskRecentCourses || [];
+      const result = await chrome.storage.local.get([this.storageKeys.visited, this.storageKeys.recent]);
+      this.visitedCourses = result[this.storageKeys.visited] || {};
+      this.recentCourses = result[this.storageKeys.recent] || [];
     } catch (error) {
       console.error('Error loading visited courses:', error);
       this.visitedCourses = {};
@@ -141,8 +147,8 @@ class CourseSwitcherModule {
 
       // 保存到storage
       await chrome.storage.local.set({
-        moodeskVisitedCourses: this.visitedCourses,
-        moodeskRecentCourses: this.recentCourses
+        [this.storageKeys.visited]: this.visitedCourses,
+        [this.storageKeys.recent]: this.recentCourses
       });
 
     } catch (error) {
@@ -316,13 +322,13 @@ class CourseSwitcherModule {
   }
 
   async loadRecentCourses() {
-    const result = await chrome.storage.local.get("moodeskRecentCourses");
-    this.recentCourses = result.moodeskRecentCourses || [];
+    const result = await chrome.storage.local.get(this.storageKeys.recent);
+    this.recentCourses = result[this.storageKeys.recent] || [];
   }
 
   async saveRecentCourses() {
     await chrome.storage.local.set({
-      moodeskRecentCourses: this.recentCourses,
+      [this.storageKeys.recent]: this.recentCourses,
     });
   }
 
@@ -340,7 +346,7 @@ class CourseSwitcherModule {
 
     // 保存更新
     await chrome.storage.local.set({
-      moodeskRecentCourses: this.recentCourses
+      [this.storageKeys.recent]: this.recentCourses
     });
 
     // 课程切换动画

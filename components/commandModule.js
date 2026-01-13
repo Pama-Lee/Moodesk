@@ -11,21 +11,21 @@ class CommandModule {
       {
         id: "toggle-todo",
         name: "切换待办事项面板",
-        shortcut: `${this.modKey} + T`,
+        shortcut: `${this.modKey} + Shift + T`,
         category: "视图",
         handler: () => document.querySelector(".moodesk-header h3")?.click(),
       },
       {
         id: "add-todo",
         name: "添加待办事项",
-        shortcut: `${this.modKey} + N`,
+        shortcut: `${this.modKey} + Shift + N`,
         category: "待办事项",
         handler: () => document.querySelector(".moodesk-todo-input")?.focus(),
       },
       {
         id: "toggle-theme",
         name: "切换主题",
-        shortcut: `${this.modKey} + L`,
+        shortcut: `${this.modKey} + Shift + L`,
         category: "外观",
         handler: () => document.querySelector(".theme-button")?.click(),
       },
@@ -34,7 +34,7 @@ class CommandModule {
       {
         id: "open-pdf",
         name: "在新标签页打开PDF",
-        shortcut: `${this.modKey} + O`,
+        shortcut: `${this.modKey} + Shift + O`,
         category: "PDF",
         handler: () =>
           document.querySelector(".moodesk-floating-button")?.click(),
@@ -44,42 +44,42 @@ class CommandModule {
       {
         id: "mark-all-done",
         name: "标记所有活动为完成",
-        shortcut: `${this.modKey} + M`,
+        shortcut: `${this.modKey} + Shift + M`,
         category: "课程操作",
         handler: () => this.markAllAsDone(),
       },
       {
         id: "mark-all-undone",
         name: "标记所有活动为未完成",
-        shortcut: `${this.modKey} + U`,
+        shortcut: `${this.modKey} + Shift + U`,
         category: "课程操作",
         handler: () => this.markAllAsUndone(),
       },
       {
         id: "mark-visible-done",
         name: "标记当前可见活动为完成",
-        shortcut: `${this.modKey} + V`,
+        shortcut: `${this.modKey} + Shift + V`,
         category: "课程操作",
         handler: () => this.markVisibleAsDone(),
       },
       {
         id: "mark-section-done",
         name: "标记当前章节活动为完成",
-        shortcut: `${this.modKey} + S`,
+        shortcut: `${this.modKey} + Shift + S`,
         category: "课程操作",
         handler: () => this.markCurrentSectionDone(),
       },
       {
         id: "expand-all-sections",
         name: "展开所有章节",
-        shortcut: `${this.modKey} + E`,
+        shortcut: `${this.modKey} + Shift + E`,
         category: "课程操作",
         handler: () => this.expandAllSections(),
       },
       {
         id: "collapse-all-sections",
         name: "折叠所有章节",
-        shortcut: `${this.modKey} + C`,
+        shortcut: `${this.modKey} + Shift + C`,
         category: "课程操作",
         handler: () => this.collapseAllSections(),
       },
@@ -93,6 +93,10 @@ class CommandModule {
   init() {
     this.createCommandPalette();
     this.setupEventListeners();
+  }
+
+  static getModkey() {
+    return navigator.platform.toUpperCase().indexOf("MAC") >= 0 ? "⌘" : "Alt";
   }
 
   /**
@@ -234,8 +238,8 @@ class CommandModule {
       return false;
     }
 
-    // 验证快捷键格式
-    const shortcutPattern = new RegExp(`^${this.modKey} \\+ [A-Za-z0-9\\[\\]]$`);   
+    // 验证快捷键格式（支持 Shift）
+    const shortcutPattern = new RegExp(`^${this.modKey}( \\+ Shift)? \\+ [A-Za-z0-9\\[\\]]$`, 'i');   
     if (!shortcutPattern.test(config.shortcut)) {
       return false;
     }
@@ -319,13 +323,23 @@ class CommandModule {
       }
 
       this.commands.forEach((command) => {
-        const key = command.shortcut.split("+")[1].trim().toLowerCase();
+        const parts = command.shortcut.split("+").map(p => p.trim().toLowerCase());
         const needsMod = command.shortcut.includes(this.modKey);
-
+        const needsShift = command.shortcut.toLowerCase().includes("shift");
+        
+        // 提取最后一个键（可能是 "a", "shift", "a" 等）
+        const key = parts[parts.length - 1];
+        
         // Mac 使用 metaKey (Command), Windows 使用 altKey
         const modPressed = this.isMac ? e.metaKey : e.altKey;
+        const shiftPressed = e.shiftKey;
 
-        if (needsMod && modPressed && e.key.toLowerCase() === key) {
+        // 检查是否匹配
+        const modMatch = !needsMod || modPressed;
+        const shiftMatch = !needsShift || shiftPressed;
+        const keyMatch = e.key.toLowerCase() === key;
+
+        if (modMatch && shiftMatch && keyMatch) {
           e.preventDefault();
           command.handler();
         }

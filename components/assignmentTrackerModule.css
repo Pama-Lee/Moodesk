@@ -1,0 +1,232 @@
+.assignment-tracker-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    width: 360px;
+    height: 100%;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .assignment-header {
+    margin-bottom: 20px;
+  }
+
+  .assignment-header h3 {
+    color: #1a73e8;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .assignment-count {
+    background: #e8f0fe;
+    color: #1a73e8;
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 4px;
+  }
+
+  .assignment-list {
+    display: flex;
+    gap: 12px;
+  }
+
+  /* 纵向列表（默认） */
+  .assignment-list-vertical {
+    flex-direction: column;
+  }
+
+  /* 横向滚动列表 */
+  .assignment-list-horizontal {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0 10px 12px;
+  }
+
+  .assignment-tracker-card.horizontal {
+    width: 100%;
+    max-width: 100%;
+    max-height: 260px;
+    background: transparent;
+    box-shadow: none;
+    padding: 0 0 16px;
+    margin-bottom: 20px;
+  }
+
+  .assignment-tracker-card.horizontal .assignment-header {
+    padding: 16px 16px 8px;
+  }
+
+  .assignment-tracker-card.horizontal .assignment-header h3 {
+    font-size: 18px;
+  }
+
+  .assignment-list-horizontal .assignment-item {
+    min-width: 260px;
+    max-width: 300px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-left: none;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .assignment-list-horizontal .assignment-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .assignment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    border-left: 4px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .assignment-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .assignment-item.urgent {
+    border-left-color: #dc3545;
+    background: #fff5f5;
+  }
+
+  .assignment-item.warning {
+    border-left-color: #ffc107;
+    background: #fff8e5;
+  }
+
+  .assignment-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .urgency-badge {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+  }
+
+  .urgency-badge.urgent {
+    background: #ffeaea;
+    color: #dc3545;
+  }
+
+  .urgency-badge.warning {
+    background: #fff3cd;
+    color: #ffc107;
+  }
+
+  .assignment-name {
+    font-weight: 500;
+    color: #333;
+    font-size: 15px;
+  }
+
+  .assignment-course {
+    font-size: 13px;
+    color: #666;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .assignment-due {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .due-countdown {
+    margin-left: 4px;
+    font-weight: 500;
+    color: #1a73e8;
+  }
+
+  .assignment-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+
+  .assignment-status.submitted {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+
+  .assignment-status.pending {
+    background: #fff3e0;
+    color: #f57c00;
+  }
+
+  .assignment-loading {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e8f0fe;
+    border-top: 3px solid #1a73e8;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    animation: spin 1s linear infinite;
+  }
+
+  .loading-hint {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+  }
+
+  .assignment-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+  }
+
+  .assignment-empty svg {
+    color: #ccc;
+    margin-bottom: 16px;
+  }
+
+  .assignment-empty p {
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+
+  .assignment-empty span {
+    font-size: 13px;
+    color: #888;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
